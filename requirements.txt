@@ -1,4 +1,3 @@
-name: nmtest
 channels:
   - defaults
   - conda-forge
