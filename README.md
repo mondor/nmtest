@@ -27,7 +27,7 @@ hence in the code, I have normalised all values >= 1 to just 1, everything else 
 
 ## Installation
 ```
-> git clone 
+> git clone https://github.com/mondor/nmtest.git
 > cd nmtest
 > conda env create -n nmtest -f requirements.txt
 > conda activate nmtest 
