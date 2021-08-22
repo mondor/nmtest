@@ -22,9 +22,11 @@ class AttributeAggregator:
         self._source_path = os.path.join(data_path, 'New_Data')        
         self._tmp_path = os.path.join(data_path, 'tmp')
         self._aggregated_path = os.path.join(data_path, 'aggregated')
-        
+
+        if not os.path.exists(self._source_path):
+            raise ValueError('Please move the original dataset "New_Data" under the "data" folder')
+
         csv = os.path.join(self._source_path, 'attribute_manifest.csv')
-        assert os.path.exists(csv)
         df = pd.read_csv(csv)
         # making sure the dataframe is unique by loc_id, date
         df['unique_key'] = df.apply(lambda x: f"{x['loc_id']}_{x['date']}", axis=1)

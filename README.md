@@ -29,7 +29,7 @@ hence in the code, I have normalised all values >= 1 to just 1, everything else 
 ```
 > git clone https://github.com/mondor/nmtest.git
 > cd nmtest
-> conda env create -n nmtest -f requirements.txt
+> conda env create -n nmtest -f requirements.yml
 > conda activate nmtest 
 ```
 Unzip the Test Dataset "New_Data", move it into the "data" folder, such that the project 
@@ -46,7 +46,6 @@ has the following structure:
 │   │   │   ├── 1_1011_2013-06-29.tar
 │   │   │   └── 2_1011_2013-06-29.tar
 │   │   │   └── ...
-│   │   ├── 1012
 │   │   ├── 1012
 │   │   ├── 1029
 │   │   ├── ...
