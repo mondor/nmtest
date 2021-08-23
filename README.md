@@ -6,18 +6,19 @@
 
 #### Tools:
 - Using jupyter notebook to explore the dataset
-- Using library h5py to read/write metadata in the h5 files
+- Using library h5py to read/write metadata from/to the h5 files
 - Using matplotlib to visualise the generated/aggregated marks
 
 #### Assumptions:
+- Assuming we are aggregating the attributes by location and date, rather than aggregate by location. Since aggregate by location may not make sense as building may change overtime at the same location, e.g roof may be different at different times.
 - Assuming we are training a CNN model to label Roof and Solar panel, we are only interest the labels marked as 'present' and 'not present', 
 hence in the code, I have normalised all values >= 1 to just 1, everything else is 0. 
 - At the moment, the 1s are just a single pixel in the center of a grid, I assume when training the CNN model, you would fill all the pixels in the grids so that the 1s will cover the entire roof/solar panel.
 
 > If you have used frameworks then write a brief note to describe how your solution will be deployed to the cloud.
 
-- This solution didn't use any framework, to scale up to a bigger dataset, I think we could use AWS S3 bucket to host the dataset, hook a AWS Lambda function to the s3 bucket so that when new jobs added to the bucket, the aggregation function will be triggered, and in term archive the result to another s3 bucket.
-- If processing a large amount of data in a short time is critical, some sort of parallelism will be needed - potentially using Spark/Kubernetes to distribute the data processing may be a better solution, however I have very limited experience working with Spark/Kubernetes at the moment.   
+- This solution didn't use any framework, to scale up to a bigger dataset, I think we could use AWS S3 bucket to host the dataset, hook a AWS Lambda function to the s3 bucket so that when new jobs added to the bucket, the aggregation function will be triggered, and the aggregation function in term could archive the result to another s3 bucket.
+- If processing a large amount of data in a short time is critical, some sort of parallelism will be needed - potentially using Spark/Kubernetes to distribute the data processing may be a better solution, however I have very limited experience working with Spark/Kubernetes at the moment, more research is needed to confirm the hypothesis.    
 
 
 
